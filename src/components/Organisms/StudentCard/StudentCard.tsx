@@ -1,8 +1,9 @@
-import { type FC } from "react";
+import { useState, type FC } from "react";
 import { type InputLabelProps } from "../../Atoms/InputLabel/InputLabel";
 import type { RadioLabelProps } from "../../Atoms/RadioLabel/RadioLabel";
 import { GradeEntryRow } from "../../Molecules/GradeEntryRow/GradeEntryRow";
 import type { StudentConfigType } from "../../Templates/StudentPointsAndGrades/StudentPointsAndGrades.types";
+import { twMerge } from "tailwind-merge";
 
 export type GradePointsType = {
   value: string;
@@ -45,8 +46,17 @@ export const StudentCard: FC<StudentCardProps> = ({
     { value: `grade-10`, labelText: "10" },
   ];
 
+  const cardHasError = gradesArray.some(
+    (entry) => entry.points.hasError || entry.grade.hasError,
+  );
+
   return (
-    <div className="p-3 border-2 border-gray-200 flex justify-between rounded-lg items-center gap-6">
+    <div
+      className={twMerge(
+        "p-3 border-2 border-gray-200 flex justify-between rounded-lg items-center gap-6",
+        cardHasError && "border-red-200",
+      )}
+    >
       <div className="flex flex-col items-start">
         <span>{studentName}</span>
         <span>{studentId}</span>
