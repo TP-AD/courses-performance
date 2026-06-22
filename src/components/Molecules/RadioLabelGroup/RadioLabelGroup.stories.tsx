@@ -25,10 +25,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     gradeOptions: [
-      { id: "option-a", labelText: "Option A" },
-      { id: "option-b", labelText: "Option B" },
-      { id: "option-c", labelText: "Option C" },
+      { id: "option-a", labelText: "Option A", value: "option-a" },
+      { id: "option-b", labelText: "Option B", value: "option-b" },
+      { id: "option-c", labelText: "Option C", value: "option-c" },
     ],
+    groupName: "group-1",
     activeRadioId: "option-a",
   },
   render: (args) => {

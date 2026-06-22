@@ -30,12 +30,16 @@ export const Default: Story = {
     gradesArray: [
       {
         id: "ocena",
-        points: "",
-        grade: "",
+        points: {
+          value: "",
+        },
+        grade: {
+          value: "",
+        },
         inputPlaceholder: "0",
         labelText: "Točke 0",
         hasError: false,
-        enabled: true,
+        inputEnabled: true,
       },
     ],
   },
@@ -51,13 +55,17 @@ export const Default: Story = {
           if (type === "input") {
             setGradesArray((prev) =>
               prev.map((grade, i) =>
-                i === index ? { ...grade, inputValue: value } : grade,
+                i === index
+                  ? { ...grade, points: { ...grade.points, value } }
+                  : grade,
               ),
             );
           } else {
             setGradesArray((prev) =>
               prev.map((grade, i) =>
-                i === index ? { ...grade, grade: value } : grade,
+                i === index
+                  ? { ...grade, grade: { ...grade.grade, value } }
+                  : grade,
               ),
             );
           }
@@ -74,21 +82,21 @@ export const MultipleGrades: Story = {
     gradesArray: [
       {
         id: "ocena-1",
-        points: "",
-        grade: "",
+        points: { value: "" },
+        grade: { value: "" },
         inputPlaceholder: "0",
         labelText: "Točke 0",
         hasError: false,
-        enabled: true,
+        inputEnabled: true,
       },
       {
         id: "ocena-2",
-        points: "",
-        grade: "",
+        points: { value: "" },
+        grade: { value: "" },
         inputPlaceholder: "0",
         labelText: "Točke 1",
         hasError: false,
-        enabled: true,
+        inputEnabled: true,
       },
     ],
   },
@@ -104,13 +112,17 @@ export const MultipleGrades: Story = {
           if (type === "input") {
             setGradesArray((prev) =>
               prev.map((grade, i) =>
-                i === index ? { ...grade, inputValue: value } : grade,
+                i === index
+                  ? { ...grade, points: { ...grade.points, value } }
+                  : grade,
               ),
             );
           } else {
             setGradesArray((prev) =>
               prev.map((grade, i) =>
-                i === index ? { ...grade, grade: value } : grade,
+                i === index
+                  ? { ...grade, grade: { ...grade.grade, value } }
+                  : grade,
               ),
             );
           }

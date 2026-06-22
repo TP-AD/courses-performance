@@ -94,15 +94,14 @@ const GradeEvalObject = z
     ...GradeEntry.shape,
   })
   .superRefine((data, ctx) => {
-    if (!data.checked) {
-      if (invalidGrade.safeParse(data.grade).success) {
-        ctx.addIssue({
-          code: "custom",
-          message: "Prosimo, vnesite oceno.",
-          path: ["entry", "grade"],
-        });
-      }
-    } else {
+    if (invalidGrade.safeParse(data.grade).success) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Prosimo, vnesite oceno.",
+        path: ["entry", "grade"],
+      });
+    }
+    if (data.checked) {
       if (
         (Number.isNaN(data.points) || data.points === 0) &&
         !noGrade.safeParse(data.grade).success

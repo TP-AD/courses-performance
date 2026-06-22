@@ -28,6 +28,8 @@ export const Default: Story = {
     labelText: "Option A",
     id: "option-a",
     checked: false,
+    value: "option-a",
+    groupName: "group-a",
   },
   render: (args) => {
     const [, updateArgs] = useArgs();

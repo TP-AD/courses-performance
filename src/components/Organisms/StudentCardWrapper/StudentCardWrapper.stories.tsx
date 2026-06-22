@@ -29,11 +29,11 @@ const defaultStudents: Omit<StudentCardProps, "onChange">[] = [
     gradesArray: [
       {
         id: "ocena-1",
-        points: "",
-        grade: "",
+        points: { value: "" },
+        grade: { value: "" },
         labelText: "Točke 0",
         hasError: false,
-        enabled: true,
+        inputEnabled: true,
       },
     ],
   },
@@ -43,11 +43,11 @@ const defaultStudents: Omit<StudentCardProps, "onChange">[] = [
     gradesArray: [
       {
         id: "ocena-2",
-        points: "",
-        grade: "",
+        points: { value: "" },
+        grade: { value: "" },
         labelText: "Točke 0",
         hasError: false,
-        enabled: true,
+        inputEnabled: true,
       },
     ],
   },
@@ -74,8 +74,8 @@ export const Default: Story = {
                 gradesArray: student.gradesArray.map((grade, i) => {
                   if (i !== index) return grade;
                   return type === "radio"
-                    ? { ...grade, grade: value }
-                    : { ...grade, points: value };
+                    ? { ...grade, grade: { ...grade.grade, value } }
+                    : { ...grade, points: { ...grade.points, value } };
                 }),
               };
             }),

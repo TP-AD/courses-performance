@@ -15,7 +15,7 @@ const meta = {
     inputValue: { control: "text" },
     inputPlaceholder: { control: "text" },
     labelText: { control: "text" },
-    validationText: { control: "text" },
+    validationText: { control: "object" },
     id: { control: "text" },
     onBlur: { table: { disable: true } },
     onChange: { table: { disable: true } },
@@ -31,12 +31,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    id: "inputLabel",
     labelText: "Enter value",
     inputValue: "hellp",
     inputPlaceholder: "Some value",
     hasError: false,
     enabled: true,
     required: false,
-    validationText: ""
+    validationText: undefined,
   },
 };

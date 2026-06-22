@@ -13,7 +13,7 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    validationText: { control: "text" },
+    validationText: { control: "object" },
     toggle: { control: "object" },
     passInput: { control: "object" },
     maxInput: { control: "object" },
@@ -28,18 +28,20 @@ export const Default: Story = {
   args: {
     toggle: { labelText: "Enable", checked: false },
     passInput: {
+      id: "min",
       labelText: "Min points",
       inputValue: "",
       inputPlaceholder: "0",
       hasError: false,
     },
     maxInput: {
+      id: "max",
       labelText: "Max points",
       inputValue: "",
       inputPlaceholder: "100",
       hasError: false,
     },
-    validationText: "",
+    validationText: undefined,
     onChange: action("onChange"),
   },
   render: (args) => {

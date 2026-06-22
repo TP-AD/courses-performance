@@ -17,7 +17,7 @@ type GradeEntryRowProps = {
   studentGradeRow: Omit<InputLabelProps, "onChange" | "onBlur" | "inputValue"> &
     Omit<
       RadioLabelProps,
-      "onChange" | "checked" | "labelText" | "groupName"
+      "onChange" | "checked" | "labelText" | "groupName" | "value"
     > & {
       points: GradePointsType;
       grade: GradePointsType;

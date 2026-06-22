@@ -11,7 +11,6 @@ const meta = {
   },
   argTypes: {
     labelText: { control: "text" },
-    validationText: { control: "text" },
     checked: { table: { disable: true } },
     id: { control: "text" },
     onChange: { table: { disable: true } },
@@ -28,7 +27,6 @@ export const Default: Story = {
   args: {
     labelText: "Enable feature",
     checked: false,
-    validationText: "",
   },
   render: (args) => {
     const [, updateArgs] = useArgs();
