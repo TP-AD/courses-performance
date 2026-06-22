@@ -2,10 +2,11 @@ import { useId, useState, type FC } from "react";
 import { Input, type InputProps } from "../Input/Input";
 import { twMerge } from "tailwind-merge";
 import { ValidationText } from "../ValidationText/ValidationText";
+import { parseValidationArray } from "../ValidationText/ValidationText.utils";
 
 export type InputLabelProps = InputProps & {
   labelText: string;
-  validationText?: string[];
+  validationText?: string[] | undefined;
 };
 
 export const InputLabel: FC<InputLabelProps> = ({
@@ -57,7 +58,9 @@ export const InputLabel: FC<InputLabelProps> = ({
           enabled={enabled}
         />
       </div>
-      {validationText && <ValidationText text={validationText} />}
+      {validationText && (
+        <ValidationText text={parseValidationArray(validationText)} />
+      )}
     </div>
   );
 };

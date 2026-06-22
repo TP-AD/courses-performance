@@ -8,6 +8,7 @@ import {
   type ToggleLabelProps,
 } from "../../Atoms/ToggleLabel/ToggleLabel";
 import { ValidationText } from "../../Atoms/ValidationText/ValidationText";
+import { parseValidationArray } from "../../Atoms/ValidationText/ValidationText.utils";
 
 export type GradeSettingsRowChange =
   | { field: "toggle"; value: boolean }
@@ -49,7 +50,9 @@ export const GradeSettingsRow: FC<GradeSettingsRowProps> = ({
             onChange({ field: "maxInput", value: e.target.value })
           }
         />
-        {validationText && <ValidationText text={validationText} />}
+        {validationText && (
+          <ValidationText text={parseValidationArray(validationText)} />
+        )}
       </div>
     </>
   );

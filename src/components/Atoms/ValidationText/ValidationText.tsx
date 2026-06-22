@@ -6,7 +6,7 @@ export const ValidationText = ({
   text,
   direction = "right",
 }: {
-  text: string[];
+  text: string;
   direction?: "right" | "left";
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -23,7 +23,7 @@ export const ValidationText = ({
           direction === "left" ? "right-7" : "left-7",
         )}
       >
-        {text.join("\n")}
+        {text}
       </div>
     </div>
   );

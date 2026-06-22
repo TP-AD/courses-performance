@@ -17,6 +17,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    text: ["This field is required."],
+    text: "This field is required.",
   },
 };

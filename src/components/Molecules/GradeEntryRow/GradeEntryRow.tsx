@@ -10,14 +10,18 @@ import {
 import type { RadioLabelProps } from "../../Atoms/RadioLabel/RadioLabel";
 import type { GradePointsType } from "../../Organisms/StudentCard/StudentCard";
 import { ValidationText } from "../../Atoms/ValidationText/ValidationText";
+import { parseValidationArray } from "../../Atoms/ValidationText/ValidationText.utils";
 
 type GradeEntryRowProps = {
   groupName: string;
   gradeOptions: GradeRadioOptions[];
-  studentGradeRow: Omit<InputLabelProps, "onChange" | "onBlur" | "inputValue"> &
+  studentGradeRow: Omit<
+    InputLabelProps,
+    "onChange" | "onBlur" | "inputValue" | "hasError"
+  > &
     Omit<
       RadioLabelProps,
-      "onChange" | "checked" | "labelText" | "groupName" | "value"
+      "onChange" | "checked" | "labelText" | "groupName" | "value" | "hasError"
     > & {
       points: GradePointsType;
       grade: GradePointsType;
@@ -37,7 +41,7 @@ export const GradeEntryRow: FC<GradeEntryRowProps> = ({
       <div className="min-w-4.5">
         {studentGradeRow.validationText && (
           <ValidationText
-            text={studentGradeRow.validationText}
+            text={parseValidationArray(studentGradeRow.validationText)}
             direction="left"
           />
         )}
