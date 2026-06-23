@@ -37,7 +37,7 @@ export const InputLabel: FC<InputLabelProps> = ({
           <label
             htmlFor={componentId}
             className={twMerge(
-              "text-black",
+              "text-black text-[14px] leading-3.5",
               !enabled && "pointer-events-none text-neutral-500",
             )}
           >
@@ -65,6 +65,3 @@ export const InputLabel: FC<InputLabelProps> = ({
     </div>
   );
 };
-
-//TODO: WHy doesnt eslint extension work?
-// probi narest mini projekt in testirat če dela na enem fajlu

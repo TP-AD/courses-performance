@@ -20,7 +20,7 @@ export const StudentCardWrapper: FC<StudentCardWrapperProps> = ({
   onChange,
 }) => {
   return (
-    <div className="flex flex-col gap-4 my-3">
+    <div className="flex flex-col gap-4 ">
       {studentsArray.map((student, i) => (
         <StudentCard
           key={`student-${i}`}

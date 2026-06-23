@@ -23,7 +23,7 @@ export const Input: FC<InputProps> = ({
   onChange,
 }) => {
   const baseClasses =
-    "px-2 py-1 rounded-2 border-2 border-solid border-neutral-600 rounded-lg text-black";
+    "w-full inline-block px-2 py-1 rounded-2 border-2 border-solid border-neutral-600 rounded-lg text-black";
   const errorClasses = "border-red-500";
   const disabledClasses = "border-neutral-200 pointer-events-none";
 

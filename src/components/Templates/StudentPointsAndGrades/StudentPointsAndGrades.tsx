@@ -182,7 +182,7 @@ export const StudentPointsAndGrades: FC<StudentPointsAndGradesProps> = ({
   };
 
   return (
-    <div className="flex gap-8">
+    <div className="grid grid-cols-2 gap-8">
       {/* Onchange: toggle, točke N max in min */}
       <GradeSettingsRowWrapper
         gradeSettingsRowArray={rowValues}
@@ -196,5 +196,3 @@ export const StudentPointsAndGrades: FC<StudentPointsAndGradesProps> = ({
     </div>
   );
 };
-
-// TODO Re-style into compact mode :D (zato da so settingzi in kartice vidne hkrati)
