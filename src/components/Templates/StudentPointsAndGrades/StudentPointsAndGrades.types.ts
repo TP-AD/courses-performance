@@ -1,4 +1,4 @@
-import type { GradePointsType } from "../../Organisms/StudentCard/StudentCard";
+import type { GradePointsType } from "../../Molecules/GradeEntryRow/GradeEntryRow.types";
 
 export type ErrorKey = "passHasError" | "maxHasError";
 export type StudentGradeValue = {

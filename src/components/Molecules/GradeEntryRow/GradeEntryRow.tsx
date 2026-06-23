@@ -1,32 +1,17 @@
 import type { FC } from "react";
-import {
-  InputLabel,
-  type InputLabelProps,
-} from "../../Atoms/InputLabel/InputLabel";
+import { InputLabel } from "../../Atoms/InputLabel/InputLabel";
 import {
   RadioLabelGroup,
   type GradeRadioOptions,
 } from "../RadioLabelGroup/RadioLabelGroup";
-import type { RadioLabelProps } from "../../Atoms/RadioLabel/RadioLabel";
-import type { GradePointsType } from "../../Organisms/StudentCard/StudentCard";
 import { ValidationText } from "../../Atoms/ValidationText/ValidationText";
 import { parseValidationArray } from "../../Atoms/ValidationText/ValidationText.utils";
+import type { StudentGradeEntryRow } from "./GradeEntryRow.types";
 
 type GradeEntryRowProps = {
   groupName: string;
   gradeOptions: GradeRadioOptions[];
-  studentGradeRow: Omit<
-    InputLabelProps,
-    "onChange" | "onBlur" | "inputValue" | "hasError"
-  > &
-    Omit<
-      RadioLabelProps,
-      "onChange" | "checked" | "labelText" | "groupName" | "value" | "hasError"
-    > & {
-      points: GradePointsType;
-      grade: GradePointsType;
-      inputEnabled: boolean;
-    };
+  studentGradeRow: StudentGradeEntryRow;
   onChange: (value: string, type: "input" | "radio") => void;
 };
 

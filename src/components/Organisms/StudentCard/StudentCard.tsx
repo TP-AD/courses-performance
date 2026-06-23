@@ -1,26 +1,12 @@
 import { type FC } from "react";
-import { type InputLabelProps } from "../../Atoms/InputLabel/InputLabel";
-import type { RadioLabelProps } from "../../Atoms/RadioLabel/RadioLabel";
 import { GradeEntryRow } from "../../Molecules/GradeEntryRow/GradeEntryRow";
 import type { StudentConfigType } from "../../Templates/StudentPointsAndGrades/StudentPointsAndGrades.types";
 import { twMerge } from "tailwind-merge";
-
-export type GradePointsType = {
-  value: string;
-  hasError?: boolean;
-};
+import type { StudentGradeEntryRow } from "../../Molecules/GradeEntryRow/GradeEntryRow.types";
 
 export type StudentCardProps = StudentConfigType & {
   onChange: (index: number, value: string, type: "input" | "radio") => void;
-  gradesArray: (Omit<InputLabelProps, "onChange" | "onBlur" | "inputValue"> &
-    Omit<
-      RadioLabelProps,
-      "onChange" | "checked" | "labelText" | "groupName" | "value"
-    > & {
-      points: GradePointsType;
-      grade: GradePointsType;
-      inputEnabled: boolean;
-    })[];
+  gradesArray: StudentGradeEntryRow[];
 };
 
 export const StudentCard: FC<StudentCardProps> = ({

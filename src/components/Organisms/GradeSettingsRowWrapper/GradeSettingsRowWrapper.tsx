@@ -3,24 +3,8 @@ import {
   GradeSettingsRow,
   type GradeSettingsRowChange,
 } from "../../Molecules/GradeSettingsRow/GradeSettingsRow";
-import type { ToggleLabelProps } from "../../Atoms/ToggleLabel/ToggleLabel";
-import type { InputLabelProps } from "../../Atoms/InputLabel/InputLabel";
+import type { GradeSettingsRowType } from "./GradeSettingsRowWrapper.types";
 
-export type GradeSettingsRowType = {
-  id: string;
-  toggleData: Omit<ToggleLabelProps, "onChange" | "checked">;
-  passData: Omit<
-    InputLabelProps,
-    "onBlur" | "onChange" | "validationText" | "id" | "required"
-  >;
-  maxData: Omit<
-    InputLabelProps,
-    "onBlur" | "onChange" | "validationText" | "id" | "required"
-  >;
-  checked: boolean;
-  pointsLabel: string;
-  validationText?: string[];
-};
 export type GradeSettingsRowWrapperProps = {
   gradeSettingsRowArray: GradeSettingsRowType[];
   onChange: (index: number, change: GradeSettingsRowChange) => void;

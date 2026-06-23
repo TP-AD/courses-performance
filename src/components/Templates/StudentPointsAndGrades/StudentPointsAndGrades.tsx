@@ -1,8 +1,5 @@
 import { useState, type FC } from "react";
-import {
-  GradeSettingsRowWrapper,
-  type GradeSettingsRowType,
-} from "../../Organisms/GradeSettingsRowWrapper/GradeSettingsRowWrapper";
+import { GradeSettingsRowWrapper } from "../../Organisms/GradeSettingsRowWrapper/GradeSettingsRowWrapper";
 import {
   StudentCardWrapper,
   type StudentCardChange,
@@ -17,6 +14,7 @@ import type {
   StudentGradeValue,
 } from "./StudentPointsAndGrades.types";
 import { buildStudentVals } from "./StudentPointsAndGrades.utils";
+import type { GradeSettingsRowType } from "../../Organisms/GradeSettingsRowWrapper/GradeSettingsRowWrapper.types";
 
 export type StudentPointsAndGradesProps = {
   rowsConfig: GradeSettingsRowType[];

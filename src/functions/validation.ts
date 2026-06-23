@@ -1,6 +1,6 @@
 import * as z from "zod";
-import type { GradeSettingsRowType } from "../components/Organisms/GradeSettingsRowWrapper/GradeSettingsRowWrapper";
 import type { StudentGradeValue } from "../components/Templates/StudentPointsAndGrades/StudentPointsAndGrades.types";
+import type { GradeSettingsRowType } from "../components/Organisms/GradeSettingsRowWrapper/GradeSettingsRowWrapper.types";
 
 const VALID_PATHS = [
   "entry",
