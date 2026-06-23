@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import { type InputLabelProps } from "../../Atoms/InputLabel/InputLabel";
 import type { RadioLabelProps } from "../../Atoms/RadioLabel/RadioLabel";
 import { GradeEntryRow } from "../../Molecules/GradeEntryRow/GradeEntryRow";

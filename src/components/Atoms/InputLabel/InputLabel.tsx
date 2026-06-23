@@ -22,7 +22,8 @@ export const InputLabel: FC<InputLabelProps> = ({
   required,
 }) => {
   const [currentVal, setCurrentVal] = useState<string>(inputValue);
-  const componentId = id ?? useId();
+  const backupId = useId();
+  const componentId = id ?? backupId;
 
   return (
     <div>
@@ -64,3 +65,6 @@ export const InputLabel: FC<InputLabelProps> = ({
     </div>
   );
 };
+
+//TODO: WHy doesnt eslint extension work?
+// probi narest mini projekt in testirat če dela na enem fajlu

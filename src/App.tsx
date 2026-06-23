@@ -1,5 +1,24 @@
 import { StudentPointsAndGrades } from "./components/Templates/StudentPointsAndGrades/StudentPointsAndGrades";
 
+export type InputData = {
+  inputValue: string;
+  labelText: string;
+  inputPlaceholder: string;
+  hasError?: boolean;
+};
+
+export type RowsConfig = {
+  id: string;
+  toggleData: {
+    labelText: string;
+  };
+  passData: InputData;
+  maxData: InputData;
+  pointsLabel: string;
+  checked: boolean;
+  validationText?: string[];
+};
+
 function App() {
   // Amount of grades to put in and the pre-set for values
   // Expected to retrieve this from API - required data

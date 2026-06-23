@@ -12,7 +12,8 @@ export const ToggleLabel: FC<ToggleLabelProps> = ({
   onChange,
   id,
 }) => {
-  const componentId = id ?? useId();
+  const backupId = useId();
+  const componentId = id ?? backupId;
   return (
     <div>
       <div className="flex gap-3 items-center">

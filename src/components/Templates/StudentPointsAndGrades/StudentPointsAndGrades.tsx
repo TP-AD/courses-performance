@@ -49,6 +49,7 @@ export const StudentPointsAndGrades: FC<StudentPointsAndGradesProps> = ({
     rowValues,
     gradeValues,
   );
+
   // localstorage + useeffect / -> za syncanje react state z zunanjim non-react statom (npr. localstorage)
 
   // Validation here
@@ -68,7 +69,7 @@ export const StudentPointsAndGrades: FC<StudentPointsAndGradesProps> = ({
       return prev.map((row, i) => {
         if (i !== index) return row;
 
-        let returnObject = {
+        const returnObject = {
           ...row,
           passData: { ...row.passData },
           maxData: { ...row.maxData },
@@ -181,7 +182,7 @@ export const StudentPointsAndGrades: FC<StudentPointsAndGradesProps> = ({
   };
 
   return (
-    <>
+    <div className="flex gap-8">
       {/* Onchange: toggle, točke N max in min */}
       <GradeSettingsRowWrapper
         gradeSettingsRowArray={rowValues}
@@ -192,6 +193,8 @@ export const StudentPointsAndGrades: FC<StudentPointsAndGradesProps> = ({
         studentsArray={studentValues}
         onChange={handleCardChange}
       />
-    </>
+    </div>
   );
 };
+
+// TODO Re-style into compact mode :D (zato da so settingzi in kartice vidne hkrati)
