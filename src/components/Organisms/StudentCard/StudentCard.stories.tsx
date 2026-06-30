@@ -38,7 +38,6 @@ export const Default: Story = {
         },
         inputPlaceholder: "0",
         labelText: "Točke 0",
-        hasError: false,
         inputEnabled: true,
       },
     ],
@@ -86,7 +85,6 @@ export const MultipleGrades: Story = {
         grade: { value: "" },
         inputPlaceholder: "0",
         labelText: "Točke 0",
-        hasError: false,
         inputEnabled: true,
       },
       {
@@ -95,7 +93,6 @@ export const MultipleGrades: Story = {
         grade: { value: "" },
         inputPlaceholder: "0",
         labelText: "Točke 1",
-        hasError: false,
         inputEnabled: true,
       },
     ],

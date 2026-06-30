@@ -9,16 +9,15 @@ import {
 } from "../../Atoms/ToggleLabel/ToggleLabel";
 import { ValidationText } from "../../Atoms/ValidationText/ValidationText";
 import { parseValidationArray } from "../../Atoms/ValidationText/ValidationText.utils";
-
-export type GradeSettingsRowChange =
-  | { field: "toggle"; value: boolean }
-  | { field: "passInput" | "maxInput"; value: string };
+import type { GradeSettingsRowChange } from "./GradeSettingsRow.types";
+import { useGradePointsContext } from "../../../context/GradePointsContext";
 
 export type GradeSettingsRowProps = {
   toggle: Omit<ToggleLabelProps, "onChange">;
   passInput: Omit<InputLabelProps, "onChange" | "onBlur">;
   maxInput: Omit<InputLabelProps, "onChange" | "onBlur">;
   onChange: (change: GradeSettingsRowChange) => void;
+  rowId: number;
   validationText?: string[];
 };
 
@@ -26,28 +25,40 @@ export const GradeSettingsRow: FC<GradeSettingsRowProps> = ({
   toggle,
   passInput,
   maxInput,
-  onChange,
   validationText,
+  rowId,
 }) => {
+  const { handleSettingsChange } = useGradePointsContext();
   return (
     <>
       <div className="flex items-center gap-3">
         <ToggleLabel
           {...toggle}
-          onChange={() => onChange({ field: "toggle", value: !toggle.checked })}
+          onChange={() =>
+            handleSettingsChange(rowId, {
+              field: "toggle",
+              value: !toggle.checked,
+            })
+          }
         />
         <InputLabel
           {...passInput}
           enabled={toggle.checked}
           onChange={(e) =>
-            onChange({ field: "passInput", value: e.target.value })
+            handleSettingsChange(rowId, {
+              field: "passInput",
+              value: e.target.value,
+            })
           }
         />
         <InputLabel
           {...maxInput}
           enabled={toggle.checked}
           onChange={(e) =>
-            onChange({ field: "maxInput", value: e.target.value })
+            handleSettingsChange(rowId, {
+              field: "maxInput",
+              value: e.target.value,
+            })
           }
         />
         {validationText && (

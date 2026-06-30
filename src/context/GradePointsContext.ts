@@ -1,36 +1,37 @@
 import { createContext, useContext } from "react";
-import type { RowsConfig } from "../App";
 import type {
   StudentConfigType,
   StudentGradeValue,
 } from "../components/Templates/StudentPointsAndGrades/StudentPointsAndGrades.types";
-
-type GradeOptions = {
-  value: string;
-  labelText: string;
-};
+import type { GradeSettingsRowChange } from "../components/Molecules/GradeSettingsRow/GradeSettingsRow.types";
+import type { StudentCardChange } from "../components/Organisms/StudentCardWrapper/StudentCardWrapper.types";
+import type { GradeSettingsRowType } from "../components/Organisms/GradeSettingsRowWrapper/GradeSettingsRowWrapper.types";
 
 export type GradePointsContextType = {
-  ROWS_CONFIG: RowsConfig;
-  STUDENTS_CONFIG: StudentConfigType;
-  GRADES_CONFIG?: Record<string, StudentGradeValue[]> | undefined;
-  GRADE_OPTIONS: GradeOptions[];
+  gradeValues: Record<string, StudentGradeValue[]>;
+  handleSettingsChange: (row: number, change: GradeSettingsRowChange) => void;
+  handleStudentChange: (
+    student: string,
+    row: number,
+    change: StudentCardChange,
+  ) => void;
+  rowsConfig: GradeSettingsRowType[];
+  studentsConfig: StudentConfigType[];
 };
 
-type TemporaryType = {
-  val: string;
-  setVal: (value: string) => void;
-};
+const GradePointsContext = createContext<GradePointsContextType | undefined>(
+  undefined,
+);
 
-const GradePointsContext = createContext<TemporaryType | undefined>(undefined);
-
-export const useGradeNameContext = () => {
+export const useGradePointsContext = () => {
   const context = useContext(GradePointsContext);
   if (context === undefined) {
     throw new Error(
-      "useGradeNameContext needs to be used in in  GradePointsProvided",
+      "useGradePointsContext needs to be used in GradePointsProvider",
     );
   }
+
+  return context;
 };
 
 export default GradePointsContext;

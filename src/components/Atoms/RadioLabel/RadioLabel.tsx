@@ -1,10 +1,11 @@
 import type { FC } from "react";
 import { twMerge } from "tailwind-merge";
+import type { GradeValueType } from "../../../functions/validation";
 
 export type RadioLabelProps = {
   labelText: string;
   id: string;
-  value: string;
+  value: GradeValueType;
   checked: boolean;
   groupName: string;
   onChange: () => void;

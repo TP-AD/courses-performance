@@ -1,9 +1,7 @@
 import { type FC } from "react";
-import {
-  GradeSettingsRow,
-  type GradeSettingsRowChange,
-} from "../../Molecules/GradeSettingsRow/GradeSettingsRow";
+import { GradeSettingsRow } from "../../Molecules/GradeSettingsRow/GradeSettingsRow";
 import type { GradeSettingsRowType } from "./GradeSettingsRowWrapper.types";
+import type { GradeSettingsRowChange } from "../../Molecules/GradeSettingsRow/GradeSettingsRow.types";
 
 export type GradeSettingsRowWrapperProps = {
   gradeSettingsRowArray: GradeSettingsRowType[];
@@ -30,7 +28,7 @@ export const GradeSettingsRowWrapper: FC<GradeSettingsRowWrapperProps> = ({
               labelText: config.passData.labelText,
               inputValue: config.passData.inputValue,
               inputPlaceholder: config.passData.inputPlaceholder,
-              hasError: config.passData.hasError ?? false,
+              hasError: config.valsWithError.includes("pass"),
               id: `passGrade-${rowId}`,
               enabled: config.checked,
             }}
@@ -38,12 +36,13 @@ export const GradeSettingsRowWrapper: FC<GradeSettingsRowWrapperProps> = ({
               labelText: config.maxData.labelText,
               inputValue: config.maxData.inputValue,
               inputPlaceholder: config.maxData.inputPlaceholder,
-              hasError: config.maxData.hasError ?? false,
+              hasError: config.valsWithError.includes("max"),
               id: `maxGrade-${rowId}`,
               enabled: config.checked,
             }}
             onChange={(change) => onChange(i, change)}
             validationText={config.validationText}
+            rowId={i}
           />
         );
       })}

@@ -18,17 +18,19 @@ export type ValidationResult = {
 
 export type PathType = (typeof VALID_PATHS)[number];
 
+export type GradeValueType =
+  | ""
+  | "ni-pristopil"
+  | "grade-5"
+  | "grade-6"
+  | "grade-7"
+  | "grade-8"
+  | "grade-9"
+  | "grade-10";
+
 type GradeInputReturnType = {
   points: number;
-  grade:
-    | ""
-    | "ni-pristopil"
-    | "grade-5"
-    | "grade-6"
-    | "grade-7"
-    | "grade-8"
-    | "grade-9"
-    | "grade-10";
+  grade: GradeValueType;
   passValue: number;
   maxValue: number;
   checked: boolean;
@@ -52,6 +54,7 @@ const passGrade = z.literal([
 ]);
 
 //looseObject ce zelim vidt keri kljuci so podani, ampak nedefinirani
+// GradeSettingsSchema
 const GradeSettings = z
   .object({
     passValue: z.coerce.number({ error: "Vnešene točke morajo biti število." }),
@@ -174,8 +177,8 @@ export const validateGradeInput = (
     maxValue: gradeSettingsRow.maxData.inputValue,
     passValue: gradeSettingsRow.passData.inputValue,
     checked: gradeSettingsRow.checked,
-    points: studentGradeValue.points.value,
-    grade: studentGradeValue.grade.value,
+    points: studentGradeValue.points,
+    grade: studentGradeValue.grade,
   });
 
   return validateUpdate(results, gradeSettingsRow.checked);

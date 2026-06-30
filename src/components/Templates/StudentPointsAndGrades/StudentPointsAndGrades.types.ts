@@ -1,10 +1,10 @@
-import type { GradePointsType } from "../../Molecules/GradeEntryRow/GradeEntryRow.types";
+import type { GradeValueType, PathType } from "../../../functions/validation";
 
-export type ErrorKey = "passHasError" | "maxHasError";
 export type StudentGradeValue = {
-  points: GradePointsType;
-  grade: GradePointsType;
+  points: string;
+  grade: GradeValueType;
   validationText?: string[];
+  valsWithError: PathType[];
 };
 
 export type StudentConfigType = {

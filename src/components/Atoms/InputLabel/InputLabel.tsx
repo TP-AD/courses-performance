@@ -1,11 +1,12 @@
-import { useId, useState, type FC } from "react";
+import { useId, type FC } from "react";
 import { Input, type InputProps } from "../Input/Input";
 import { twMerge } from "tailwind-merge";
 import { ValidationText } from "../ValidationText/ValidationText";
 import { parseValidationArray } from "../ValidationText/ValidationText.utils";
 
-export type InputLabelProps = InputProps & {
+export type InputLabelProps = Omit<InputProps, "onChange"> & {
   labelText: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement, Element>) => void;
   validationText?: string[] | undefined;
 };
 
@@ -21,7 +22,6 @@ export const InputLabel: FC<InputLabelProps> = ({
   id,
   required,
 }) => {
-  const [currentVal, setCurrentVal] = useState<string>(inputValue);
   const backupId = useId();
   const componentId = id ?? backupId;
 
@@ -46,14 +46,11 @@ export const InputLabel: FC<InputLabelProps> = ({
           </label>
         )}
         <Input
-          inputValue={currentVal}
+          inputValue={inputValue}
           inputPlaceholder={inputPlaceholder}
           id={componentId}
           onBlur={onBlur}
-          onChange={(e) => {
-            setCurrentVal(e.target.value);
-            onChange(e);
-          }}
+          onChange={(e) => onChange(e)}
           hasError={hasError}
           required={required}
           enabled={enabled}

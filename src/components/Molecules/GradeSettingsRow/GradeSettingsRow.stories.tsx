@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { action } from "storybook/actions";
 import { useState } from "react";
-import {
-  GradeSettingsRow,
-  type GradeSettingsRowChange,
-} from "./GradeSettingsRow";
+import { GradeSettingsRow } from "./GradeSettingsRow";
+import type { GradeSettingsRowChange } from "./GradeSettingsRow.types";
 
 const meta = {
   title: "Molecules/GradeSettingsRow",

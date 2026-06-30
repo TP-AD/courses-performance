@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { action } from "storybook/actions";
 import { useState } from "react";
-import {
-  GradeSettingsRowWrapper,
-  type GradeSettingsRowType,
-} from "./GradeSettingsRowWrapper";
-import type { GradeSettingsRowChange } from "../../Molecules/GradeSettingsRow/GradeSettingsRow";
+import { GradeSettingsRowWrapper } from "./GradeSettingsRowWrapper";
+import type { GradeSettingsRowType } from "./GradeSettingsRowWrapper.types";
+import type { GradeSettingsRowChange } from "../../Molecules/GradeSettingsRow/GradeSettingsRow.types";
 
 const meta = {
   title: "Organisms/GradeSettingsRowWrapper",
